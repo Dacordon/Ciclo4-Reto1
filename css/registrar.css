@@ -7,9 +7,9 @@ body{
 #login .container #login-row #login-column #login-box {
     margin-top: 30px;
     max-width: 600px;
-    height: 500px;
-    border: 1px solid #5a5555 ;
-    background-color:bisque;
+    height: 580px;
+    border: 1px solid #7e7c7c ;
+    background-color:rgb(240, 235, 235);
 }
 #login .container #login-row #login-column #login-box #login-form {
     padding: 30px;
@@ -22,4 +22,8 @@ body{
     #login-form
     #register-link {
     margin-top: -85px;
+  }
+
+  #text1{
+    color: rgb(0, 0, 0);
   }

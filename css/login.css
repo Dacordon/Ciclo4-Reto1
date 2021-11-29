@@ -8,8 +8,8 @@ body{
     margin-top: 50px;
     max-width: 600px;
     height: 380px;
-    border: 1px solid #5a5555 ;
-    background-color:bisque;
+    border: 1px solid #7e7c7c ;
+    background-color:rgb(240, 235, 235);
 }
 
 #login .container #login-row #login-column #login-box #login-form {
@@ -32,3 +32,7 @@ form i {
     margin-left: 10px; 
     cursor: pointer;
 }
+
+#text1{
+    color: rgb(0, 0, 0);
+  }

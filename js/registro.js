@@ -83,3 +83,125 @@ function estadoInicial(){
     $("#username").focus()
 }
 
+// Validar usuario
+$('#usercheck').hide();   
+let usernameError = true;
+$('#username').keyup(function () {
+    validateUsername();
+});
+ 
+function validateUsername() {
+  let usernameValue = $('#username').val();
+  if (usernameValue.length == '') {
+  $('#usercheck').show();
+      usernameError = false;
+      return false;
+  }
+  else if((usernameValue.length < 5)||
+          (usernameValue.length > 10)) {
+      $('#usercheck').show();
+      $('#usercheck').html
+("**Usuario debe contener de 5 a 10 caractéres");
+      usernameError = false;
+      return false;
+  }
+  else {
+      $('#usercheck').hide();
+  }
+}
+
+// Validar Email
+const email =
+document.getElementById('useremail');
+email.addEventListener('blur', ()=>{
+let regex =
+/^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+let s = email.value;
+if(regex.test(s)){
+  email.classList.remove(
+        'is-invalid');
+  emailError = true;
+}
+else{
+    email.classList.add(
+          'is-invalid');
+    emailError = false;
+}
+})
+
+// Validar Password
+$('#passcheck').hide();
+let passwordError = true;
+$('#password').keyup(function () {
+    validatePassword();
+});
+function validatePassword() {
+    let passwrdValue =
+        $('#password').val();
+    if (passwrdValue.length == '') {
+        $('#passcheck').show();
+        passwordError = false;
+        return false;
+    }
+    if ((passwrdValue.length < 5)||
+        (passwrdValue.length > 12)) {
+        $('#passcheck').show();
+        $('#passcheck').html
+("**La longitud de su contraseña debe estar entre 5 y 12 carácteres");
+        $('#passcheck').css("color", "red");
+        passwordError = false;
+        return false;
+    } else {
+        $('#passcheck').hide();
+    }
+}
+
+// Validar confirmación de Password
+$('#conpasscheck').hide();
+let confirmPasswordError = true;
+$('#passwordrepeat').keyup(function () {
+    validateConfirmPasswrd();
+});
+function validateConfirmPasswrd() {
+    let confirmPasswordValue =
+        $('#passwordrepeat').val();
+    let passwrdValue =
+        $('#password').val();
+    if (passwrdValue != confirmPasswordValue) {
+        $('#conpasscheck').show();
+        $('#conpasscheck').html(
+            "**No coinciden las contraseñas");
+        $('#conpasscheck').css(
+            "color", "red");
+        confirmPasswordError = false;
+        return false;
+    } else {
+        $('#conpasscheck').hide();
+    }
+}
+
+// Submit button
+$('#submitbtn').click(function () {
+    validateUsername();
+    validatePassword();
+    validateConfirmPasswrd();
+    //validateEmail();
+    if ((usernameError == true) &&
+        (passwordError == true) &&
+        (confirmPasswordError == true) &&
+        (emailError == true)) {
+        return true;
+    } else {
+        return false;
+    }
+});
+
+// Mostrar contraseña
+function mostrar() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
