@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   estadoInicial();
 });
@@ -35,20 +36,29 @@ function login() {
  * 
  * Configura mensaje de bienvenida o de error según el caso
  */
- function resultado(respuesta){
+function resultado(respuesta){
   let id = respuesta.id
   let nombre= respuesta.name
+  let email_bd = respuesta.email
+  let password_bd = respuesta.password
+
+  let email = $("#useremail").val();
+  let password = $("#password").val();
 
   if (id==null)
       alert("Usuario no registrado : " + nombre)
-  else
+  else if (email != email_bd || password!= password_bd) {
+      alert("Email o contraseña incorrecto")
+  }
+  else{
       alert("Bienvenido : " + id + " "+ nombre)
 
 }
-
+}
 function estadoInicial(){
   $("#useremail").focus()
 }
+
 
 
 function mostrar() {
