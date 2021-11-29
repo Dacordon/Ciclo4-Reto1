@@ -13,6 +13,7 @@ body{
 }
 #login .container #login-row #login-column #login-box #login-form {
     padding: 30px;
+    color: rgb(97, 95, 95)
   }
   #login
     .container
@@ -24,6 +25,3 @@ body{
     margin-top: -85px;
   }
 
-  #text1{
-    color: rgb(0, 0, 0);
-  }
